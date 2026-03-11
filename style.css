@@ -1,114 +1,121 @@
-body{
-font-family:Arial;
-background:#0f0f0f;
-color:white;
-margin:0;
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0f0f0f;
+    color: white;
+    margin: 0;
 }
 
-header{
-text-align:center;
-padding:40px;
-background:black;
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: black;
 }
 
-header input{
-margin-top:20px;
-padding:10px;
-width:250px;
-border-radius:5px;
-border:none;
+header input {
+    margin-top: 20px;
+    padding: 12px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: white;
 }
 
-.productos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-padding:40px;
+.carrusel {
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    height: 380px; /* Aseguramos altura fija para que no salte el contenido */
 }
 
-.producto{
-background:#1a1a1a;
-padding:20px;
-border-radius:10px;
-text-align:center;
-transition:0.3s;
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.producto:hover{
-transform:scale(1.05);
+.slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
 }
 
-.producto img{
-width:100%;
-border-radius:10px;
+.slide.active {
+    opacity: 1;
 }
 
-.precio{
-font-size:22px;
-margin:10px 0;
+.slide img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain; /* Evita que la imagen se deforme */
 }
 
-.btn{
-display:inline-block;
-background:#25D366;
-color:white;
-padding:12px 20px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.btn:hover{
-background:#1ebe5d;
+.producto {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #333;
 }
 
-footer{
-text-align:center;
-padding:20px;
-background:black;
+.producto:hover {
+    transform: scale(1.03);
+    border-color: #25D366;
 }
 
-.whatsapp-float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-font-size:28px;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-box-shadow:0 5px 10px rgba(0,0,0,0.3);
+.producto img {
+    width: 100%;
+    max-width: 200px; /* Evita que la imagen sea gigante en pantallas grandes */
+    border-radius: 10px;
 }
 
-.carrusel{
-width:100%;
-overflow:hidden;
-background:#000;
-text-align:center;
-padding:40px 0;
+.precio {
+    font-size: 24px;
+    font-weight: bold;
+    color: #25D366;
+    margin: 15px 0;
 }
 
-.slides{
-position:relative;
-height:350px;
+.btn {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
-.slide{
-position:absolute;
-width:100%;
-opacity:0;
-transition:0.5s;
+.btn:hover {
+    background: #1ebe5d;
 }
 
-.slide.active{
-opacity:1;
-}
-
-.slide img{
-width:300px;
-}
-
-.slide h2{
-margin-top:10px;
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    font-size: 30px;
+    padding: 15px 18px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
 }
