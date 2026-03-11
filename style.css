@@ -1,43 +1,56 @@
-/* Layout Principal */
-.main-container {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 60px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+body{
+font-family: Arial;
+background:#0f0f0f;
+color:white;
+margin:0;
 }
 
-/* Sidebar Estilizado */
-.sidebar h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; }
-.sidebar ul { list-style: none; padding: 0; }
-.sidebar li a { text-decoration: none; color: #666; font-size: 0.95rem; }
-.sidebar li { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
-
-/* Header del Catálogo */
-.catalogo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-.catalogo-header h1 { font-size: 2rem; font-weight: 700; }
-
-/* Tarjeta de Producto */
-.product-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid #f5f5f5;
-    transition: transform 0.2s;
+header{
+text-align:center;
+padding:40px;
+background:black;
 }
-.product-card:hover { transform: translateY(-5px); border-color: #ddd; }
-.product-card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; }
-.product-card h4 { font-size: 1.1rem; margin: 10px 0; }
-.product-card p { color: #888; font-size: 0.9rem; }
-.btn-wpp {
-    display: block;
-    margin-top: 15px;
-    background: #25D366;
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
+
+.productos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.producto{
+background:#1a1a1a;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.producto img{
+width:100%;
+border-radius:10px;
+}
+
+.precio{
+font-size:22px;
+margin:10px 0;
+}
+
+.btn{
+display:inline-block;
+background:#25D366;
+color:white;
+padding:12px 20px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#1ebe5d;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:black;
 }
