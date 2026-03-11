@@ -1,18 +1,18 @@
-const productosData = [
-    { nombre: "iPhone 16 Pro", precio: "1.500.000", img: "iphone16.jpg" },
-    { nombre: "iPhone 16", precio: "1.200.000", img: "iphone16_base.jpg" }
-];
+function buscarProducto(){
 
-const container = document.querySelector('.productos');
+let input = document.getElementById("buscador").value.toLowerCase();
+let productos = document.getElementsByClassName("producto");
 
-productosData.forEach(p => {
-    container.innerHTML += `
-        <div class="product-card">
-            <img src="${p.img}" alt="${p.nombre}">
-            <h4>${p.nombre}</h4>
-            <p>Desde $${p.precio}</p>
-            <a href="https://wa.me/549XXXXXXXXXX?text=Hola! Quiero consultar por el ${p.nombre}" 
-               class="btn-wpp" target="_blank">Consultar por WhatsApp</a>
-        </div>
-    `;
-});
+for(let i=0;i<productos.length;i++){
+
+let titulo = productos[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+
+if(titulo.includes(input)){
+productos[i].style.display="";
+}else{
+productos[i].style.display="none";
+}
+
+}
+
+}
