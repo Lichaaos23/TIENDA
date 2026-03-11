@@ -1,31 +1,18 @@
-// Tus credenciales de Supabase
-const SUPABASE_URL = 'https://crlqxddhdkclbtnswxqm.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_FeoryBbMJIM-vqnIo7CpCw_XWUkbPNp';
+// Ejemplo simplificado para tu script.js
+const productos = [
+    { nombre: "iPhone 16", precio: "1.500.000" },
+    // ... más productos
+];
 
-// Inicialización
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const contenedor = document.querySelector('.productos');
 
-async function cargarProductos() {
-    const contenedor = document.getElementById('lista-iphones');
-    
-    // Traemos los datos de la tabla que creamos al principio
-    const { data, error } = await client.from('productos_iphone').select('*');
-    
-    if (error) {
-        contenedor.innerHTML = 'Error al conectar con la base de datos: ' + error.message;
-        console.error(error);
-        return;
-    }
-
-    // Dibujamos las tarjetas de productos
-    contenedor.innerHTML = data.map(p => `
-        <div class="producto-card">
-            <h3>${p.modelo}</h3>
-            <p>${p.capacidad} - ${p.estado}</p>
-            <p><strong>Precio: $${p.precio_contado}</strong></p>
+productos.forEach(p => {
+    contenedor.innerHTML += `
+        <div class="card">
+            <h3>${p.nombre}</h3>
+            <p>Desde $${p.precio}</p>
+            <a href="https://wa.me/549XXXXXXXXXX?text=Hola%20quiero%20consultar%20por%20el%20${p.nombre}" 
+               class="btn-whatsapp" target="_blank">Consultar por WhatsApp</a>
         </div>
-    `).join('');
-}
-
-// Ejecutamos la función
-cargarProductos();
+    `;
+});
