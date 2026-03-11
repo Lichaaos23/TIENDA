@@ -1,29 +1,31 @@
-// REEMPLAZA estos valores con los que están en tu panel de Supabase (Settings -> API)
-const SUPABASE_URL = 'AQUÍ_VA_TU_URL';
-const SUPABASE_KEY = 'AQUÍ_VA_TU_ANON_KEY';
+// Tus credenciales de Supabase
+const SUPABASE_URL = 'https://crlqxddhdkclbtnswxqm.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_FeoryBbMJIM-vqnIo7CpCw_XWUkbPNp';
 
+// Inicialización
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function cargarProductos() {
     const contenedor = document.getElementById('lista-iphones');
     
-    // Consulta a la tabla que creamos en Supabase
+    // Traemos los datos de la tabla que creamos al principio
     const { data, error } = await client.from('productos_iphone').select('*');
     
     if (error) {
-        contenedor.innerHTML = 'Error al conectar con la base de datos.';
+        contenedor.innerHTML = 'Error al conectar con la base de datos: ' + error.message;
         console.error(error);
         return;
     }
 
-    // Dibujamos las tarjetas
+    // Dibujamos las tarjetas de productos
     contenedor.innerHTML = data.map(p => `
         <div class="producto-card">
             <h3>${p.modelo}</h3>
-            <p>Estado: ${p.estado} | Batería: ${p.salud_bateria}%</p>
+            <p>${p.capacidad} - ${p.estado}</p>
             <p><strong>Precio: $${p.precio_contado}</strong></p>
         </div>
     `).join('');
 }
 
+// Ejecutamos la función
 cargarProductos();
