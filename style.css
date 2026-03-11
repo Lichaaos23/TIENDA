@@ -80,3 +80,35 @@ border-radius:50%;
 text-decoration:none;
 box-shadow:0 5px 10px rgba(0,0,0,0.3);
 }
+
+.carrusel{
+width:100%;
+overflow:hidden;
+background:#000;
+text-align:center;
+padding:40px 0;
+}
+
+.slides{
+position:relative;
+height:350px;
+}
+
+.slide{
+position:absolute;
+width:100%;
+opacity:0;
+transition:0.5s;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.slide img{
+width:300px;
+}
+
+.slide h2{
+margin-top:10px;
+}
