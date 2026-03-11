@@ -1,18 +1,18 @@
-// Ejemplo simplificado para tu script.js
-const productos = [
-    { nombre: "iPhone 16", precio: "1.500.000" },
-    // ... más productos
+const productosData = [
+    { nombre: "iPhone 16 Pro", precio: "1.500.000", img: "iphone16.jpg" },
+    { nombre: "iPhone 16", precio: "1.200.000", img: "iphone16_base.jpg" }
 ];
 
-const contenedor = document.querySelector('.productos');
+const container = document.querySelector('.productos');
 
-productos.forEach(p => {
-    contenedor.innerHTML += `
-        <div class="card">
-            <h3>${p.nombre}</h3>
+productosData.forEach(p => {
+    container.innerHTML += `
+        <div class="product-card">
+            <img src="${p.img}" alt="${p.nombre}">
+            <h4>${p.nombre}</h4>
             <p>Desde $${p.precio}</p>
-            <a href="https://wa.me/549XXXXXXXXXX?text=Hola%20quiero%20consultar%20por%20el%20${p.nombre}" 
-               class="btn-whatsapp" target="_blank">Consultar por WhatsApp</a>
+            <a href="https://wa.me/549XXXXXXXXXX?text=Hola! Quiero consultar por el ${p.nombre}" 
+               class="btn-wpp" target="_blank">Consultar por WhatsApp</a>
         </div>
     `;
 });
